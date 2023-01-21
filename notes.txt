@@ -1,0 +1,3 @@
+
+- use pip list on the command line to show all packages currently installed
+-we don't upload /venv because it's too big and always changing and setup differently for your device
