@@ -30,7 +30,7 @@ body#index-page {
     font-family: 'League Spartan';
 }
 
-.login-button {
+.log-in-out-button {
     background-color: transparent;
     border: 0.15em solid white;
     color: white;
@@ -40,7 +40,7 @@ body#index-page {
     border-radius: 10px;
 }
 
-.login-button:hover {
+.log-in-out-button:hover {
     color: black;
     background-color: white;
 }
@@ -55,5 +55,49 @@ body#index-page {
 }
 
 
+/* favourites page */
 
+/* header for profile */
+
+body#favourites {
+    background-color: var(--page-color);
+    background-attachment: fixed;
+    margin: 0;
+    font-family: 'Lato';
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.profile-header {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    /* border: 1px solid #B22222; */
+    margin: 50px 10px 20px;
+}
+
+.profile-image {
+    /* border: 1px solid yellow; */
+    margin-right: 20px;
+}
+
+.rounded-circle {
+    width: 100px;
+    height: 100px;
+}
+
+.user-profile-text {
+    color: white;
+    font-size: 25px; 
+}
+
+
+
+
+
+/* top artists */
 
