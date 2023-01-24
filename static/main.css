@@ -1,0 +1,59 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=League+Spartan:wght@600&display=swap');
+
+:root {
+    --primary-color: #4825d4;
+    --page-color: #131516;
+    --element-color: #1E2224;
+    --content-background-color: #1E2224;
+}
+
+/* index aka home page */
+
+body#index-page {
+    background-image: url("img/indexBackground.png");
+    background-attachment: fixed;
+    margin: 0;
+    font-family: 'Lato';
+}
+
+.landing-page {
+    margin-top: 150px;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.web-app-name {
+    color: white;
+    font-weight: bold;
+    font-size: 2.5em;
+    font-family: 'League Spartan';
+}
+
+.login-button {
+    background-color: transparent;
+    border: 0.15em solid white;
+    color: white;
+    font-size: 15pt;
+    font-weight: bold;
+    padding: 0.6em 1.3em;
+    border-radius: 10px;
+}
+
+.login-button:hover {
+    color: black;
+    background-color: white;
+}
+
+.subhead {
+    text-transform: uppercase;
+    font-weight: bold;
+    margin-top: 15px;
+    margin-bottom: 80px;
+    color: grey;
+    letter-spacing: 0.3em;
+}
+
+
+
+
