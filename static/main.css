@@ -69,13 +69,13 @@ body#favourites {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    margin: 50px 10px 30px;
 }
 
 .profile-header {
     display: flex;
     justify-content: flex-start;
     align-items: center;
-    margin: 50px 10px 20px;
 }
 
 .profile-image {
@@ -90,6 +90,16 @@ body#favourites {
 .user-profile-text {
     color: white;
     font-size: 25px; 
+}
+
+/* log-out button */
+
+.log-out-container {
+    align-items: center;
+}
+
+#log-out {
+    font-size: 10pt;
 }
 
 /* top artists */
@@ -163,6 +173,42 @@ button:focus.time-range-button {
     background-color: #2E3438;
     border: 2px solid var(--primary-color); 
 }
+
+/* top tracks */
+
+.table {
+    margin: 0 auto; 
+    width: 80%;
+    font-size: 14px;
+}
+
+.rank {
+    color: white;
+    vertical-align: middle;
+    text-align: center;
+    font-size: 15px;
+}
+
+.track-image {
+    max-width: 50px;
+    width: 50px;
+    width: auto;
+}
+
+.track-and-artist-name {
+    vertical-align: middle;
+}
+
+#track-name {
+    color: white;
+    font-weight: bold;
+}
+
+#artist-name {
+    color: grey;
+}
+
+
 
 
 
