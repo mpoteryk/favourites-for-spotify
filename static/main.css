@@ -5,10 +5,9 @@
     --primary-color: #4825d4;
     --page-color: #131516;
     --element-color: #1E2224;
-    --content-background-color: #1E2224;
 }
 
-/* index aka home page */
+/* --- index aka home page --- */
 
 body#index-page {
     background-image: url("img/indexBackground.png");
@@ -55,7 +54,7 @@ body#index-page {
 }
 
 
-/* favourites page */
+/* --- favourites page --- */
 
 /* header for profile */
 
@@ -66,7 +65,7 @@ body#favourites {
     font-family: 'Lato';
 }
 
-.header-container {
+.header-element {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -76,12 +75,10 @@ body#favourites {
     display: flex;
     justify-content: flex-start;
     align-items: center;
-    /* border: 1px solid #B22222; */
     margin: 50px 10px 20px;
 }
 
 .profile-image {
-    /* border: 1px solid yellow; */
     margin-right: 20px;
 }
 
@@ -95,9 +92,77 @@ body#favourites {
     font-size: 25px; 
 }
 
-
-
-
-
 /* top artists */
+
+.content-element {
+    background-color: var(--element-color);
+    padding: 15px;
+    border-radius: 25px;
+    margin-bottom: 30px;
+}
+
+.item-title-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.top-items-title {
+    color: white;
+    font-weight: bold;
+    font-size: 25px;
+    text-align: left;
+    padding: 10px;
+}
+
+.card {
+    background-color: transparent;
+    border-color: transparent;
+    align-items: center;
+    justify-content: center;
+}
+
+.card-img-top {
+    max-width: 150px;
+    width: 150px;
+    width: auto;
+}
+
+.card-text {
+    color: white;
+}
+
+/* time range buttons */
+
+.time-range-menu {
+    justify-content: center;
+}
+
+.time-range-button {
+    background-color: transparent;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 10px;
+    font-size: 14px;
+    text-transform: uppercase;
+    margin-right: 5px;
+    transition: all 0.3s ease 0s;
+}
+
+button:hover.time-range-button {
+    background-color: #2E3438;
+}
+
+button:active.time-range-button {
+    color: #2E3438;
+}
+
+button:focus.time-range-button {
+    background-color: #2E3438;
+    border: 2px solid var(--primary-color); 
+}
+
+
 

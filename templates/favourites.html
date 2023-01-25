@@ -14,14 +14,12 @@
     <div class = "container">
 
         <!-- user profile -->
-        <div class = "header-container">
+        <div class = "header-element">
             <div class = "profile-header">
                 <div class = "profile-image">
-                <img src = {{userProfile.profile_image}} class = "rounded-circle" alt = "">
+                <img src = {{userProfile.profile_image}} class = "rounded-circle" alt = "User Profile Image">
                 </div>
-                <div class = "profile-name">
-                <h3 class = "user-profile-text">{{userProfile.display_name}}'s favourites</h3>
-                </div>
+                <div class = "user-profile-text"">{{userProfile.display_name}}'s favourites</div>
             </div>
             <div>
                 <a href = "#"><button type = "button" class = "log-in-out-button">Logout</button></a>
@@ -29,6 +27,38 @@
         </div>
 
         <!-- top artists -->
+        <section class = "content-element">
+
+            <div class = "item-title-container">
+                <div class = "top-items-title">Top Artists</div>
+                <div class = "time-range-menu" id = "artist-buttons">
+                    <button class = "time-range-button active" type = "button" id = "short-term-button">Past 4 weeks</button>
+                    <button class = "time-range-button" type = "button" id = "medium-term-button">Past 6 months</button>
+                    <button class = "time-range-button" type = "button" id = "long-term-button">All time</button>
+                </div>
+            </div>
+
+            <div class = "container" id = "top-artists-container">
+                <div class = "row">
+                    {% for artist in userTopArtists %}
+                    <div class = "col">
+                        <div class = "card" id = "artist-card">
+                            <img src = {{artist.artist_images[0].url}} class = "card-img-top" id = "artist-img" alt = "Artist Image">
+                            <div class = "card-body" id = "artist-text">
+                                <p class = "card-text">{{artist.artist_name}}</p>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                  </div>  
+            </div>
+    
+        </section>
+
+        <!-- top tracks -->
+
+        
+
 
     </div>
 
