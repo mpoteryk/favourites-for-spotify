@@ -3,6 +3,7 @@
 
 :root {
     --primary-color: #4825d4;
+    --accent-color: #0CFFE1;
     --page-color: #131516;
     --element-color: #1E2224;
 }
@@ -52,7 +53,6 @@ body#index-page {
     color: grey;
     letter-spacing: 0.3em;
 }
-
 
 /* --- favourites page --- */
 
@@ -108,7 +108,7 @@ body#favourites {
     background-color: var(--element-color);
     padding: 15px;
     border-radius: 25px;
-    margin-bottom: 30px;
+    margin-bottom: 40px;
 }
 
 .item-title-container {
@@ -177,8 +177,8 @@ button:focus.time-range-button {
 /* top tracks */
 
 .table {
-    margin: 0 auto; 
-    width: 80%;
+    margin: 0 auto;
+    width: 80%; 
     font-size: 14px;
 }
 
@@ -208,6 +208,7 @@ button:focus.time-range-button {
     color: grey;
 }
 
+/* top genres */
 
 
 
