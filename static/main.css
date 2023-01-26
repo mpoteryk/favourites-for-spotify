@@ -134,9 +134,9 @@ body#favourites {
 }
 
 .card-img-top {
-    max-width: 150px;
     width: 150px;
-    width: auto;
+    height: 150px;
+    object-fit: cover;
 }
 
 .card-text {

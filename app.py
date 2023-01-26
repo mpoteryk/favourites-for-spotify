@@ -2,6 +2,7 @@ from flask import Flask, request, url_for, session, redirect, render_template
 from flask_session import Session
 from datetime import timedelta
 from dotenv import load_dotenv
+import json
 import os
 
 from api import getAuthURL, getAuthData, getCurrentUserProfile, getUserTopArtists, getUserTopTracks
@@ -65,7 +66,7 @@ def favourites():
         "profile_image" : profileImage
     }
 
-    userTopArtistsShort = getUserTopArtists(accessToken, NUMBER_OF_ARTISTS, "medium_term") 
+    userTopArtistsShort = getUserTopArtists(accessToken, NUMBER_OF_ARTISTS, "short_term") 
     userTopTracksShort = getUserTopTracks(accessToken, NUMBER_OF_TRACKS, "short_term") 
 
     return render_template("favourites.html", 
@@ -73,6 +74,27 @@ def favourites():
     userTopArtists = userTopArtistsShort,
     userTopTracks = userTopTracksShort)
 
+
+@app.route("/favourites/itemType=<itemType>&timeRange=<timeRange>/", methods = ["GET"])
+def favouritesUserData(itemType, timeRange): 
+
+    #TODO: validate! / error checking
+    accessToken = session["authHeader"]["access_token"]
+
+    #TODO: get rid of this sectioj?
+    if request.method == "POST": # post request   
+        print(request.get_text())
+        return "OK", 200
+    else: # get request (get the thing from the URL)
+        if itemType == "artists": 
+            return json.dumps(getUserTopArtists(accessToken, NUMBER_OF_ARTISTS, timeRange)) 
+        elif itemType == "tracks":
+            return json.dumps(getUserTopTracks(accessToken, NUMBER_OF_TRACKS, timeRange))
+        # elif itemType == "genres":
+        #     return json.dumps(getUserTopGenres(accessToken, 50, timeRange))
+        # elif itemType == "decades":
+        #     return json.dumps(getUserTopDecades(accessToken, 50, timeRange))
+        # elif tracks, else error TODO: add error for else
 
 @app.route("/logout")
 def logout():
