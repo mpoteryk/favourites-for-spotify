@@ -6,6 +6,8 @@
     --accent-color: #0CFFE1;
     --page-color: #131516;
     --element-color: #1E2224;
+    --time-range-hover-color: #CCCCCC;
+    --time-range-color: #2E3438;
 }
 
 /* --- index aka home page --- */
@@ -99,7 +101,7 @@ body#favourites {
 }
 
 #log-out {
-    font-size: 10pt;
+    font-size: 12pt;
 }
 
 /* top artists */
@@ -145,33 +147,37 @@ body#favourites {
 
 /* time range buttons */
 
-.time-range-menu {
-    justify-content: center;
+.time-range-menu input[type = "radio"] {
+    opacity: 0;
+    position: fixed;
+    width: 0;
 }
 
-.time-range-button {
+.time-range-menu label {
     background-color: transparent;
-    color: white;
+    outline: none;
+    color: var(--time-range-hover-color);
     border: none;
     padding: 5px 10px;
     border-radius: 10px;
     font-size: 14px;
     text-transform: uppercase;
     margin-right: 5px;
-    transition: all 0.3s ease 0s;
 }
 
-button:hover.time-range-button {
-    background-color: #2E3438;
+.time-range-menu input[type = "radio"]:hover {
+    background-color: yellow;
+} 
+
+.time-range-menu input[type = "radio"]:checked + label {
+    background-color: var(--time-range-color);
+    color: white;
+    cursor: pointer;
 }
 
-button:active.time-range-button {
-    color: #2E3438;
-}
-
-button:focus.time-range-button {
-    background-color: #2E3438;
-    border: 2px solid var(--primary-color); 
+.time-range-menu label:hover {
+    color: white;
+    cursor: pointer;
 }
 
 /* top tracks */
@@ -187,6 +193,10 @@ button:focus.time-range-button {
     vertical-align: middle;
     text-align: center;
     font-size: 15px;
+}
+
+.track-image-cell {
+    text-align: center;
 }
 
 .track-image {

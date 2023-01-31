@@ -30,11 +30,17 @@
 
             <div class = "item-title-container">
                 <div class = "top-items-title">Top Artists</div>
-                <div class = "time-range-menu" id = "artist-buttons">
-                    <button class = "time-range-button active" type = "button" id = "short-term-button">Past 4 weeks</button>
-                    <button class = "time-range-button" type = "button" id = "medium-term-button">Past 6 months</button>
-                    <button class = "time-range-button" type = "button" id = "long-term-button">All time</button>
-                </div>
+
+                    <div class = "time-range-menu" id = "artist-buttons">
+                        <input type = "radio" name = "artist-time-ranges" id = "artist-short-term" value = "short-term-button" checked>
+                        <label for = "artist-short-term"">Past 4 weeks</label>
+                        
+                        <input type = "radio" name = "artist-time-ranges" id = "artist-medium-term" value = "medium-term-button">
+                        <label for = "artist-medium-term">Past 6 months</label>
+
+                        <input type = "radio" name = "artist-time-ranges" id = "artist-long-term" value = "long-term-button">
+                        <label for = "artist-long-term">All time</label>
+                    </div>
             </div>
 
             <div class = "container" id = "top-artists-container">
@@ -51,7 +57,7 @@
                     {% endfor %}
                   </div>  
             </div>
-    
+
         </section>
 
         <!-- top tracks -->
@@ -59,10 +65,16 @@
 
             <div class = "item-title-container">
                 <div class = "top-items-title">Top Tracks</div>
+
                 <div class = "time-range-menu" id = "track-buttons">
-                    <button class = "time-range-button active" type = "button" id = "short-term-button">Past 4 weeks</button>
-                    <button class = "time-range-button" type = "button" id = "medium-term-button">Past 6 months</button>
-                    <button class = "time-range-button" type = "button" id = "long-term-button">All time</button>
+                    <input type = "radio" name = "track-time-ranges" id = "track-short-term" value = "short-term-button" checked>
+                    <label for = "track-short-term"">Past 4 weeks</label>
+                    
+                    <input type = "radio" name = "track-time-ranges" id = "track-medium-term" value = "medium-term-button">
+                    <label for = "track-medium-term">Past 6 months</label>
+
+                    <input type = "radio" name = "track-time-ranges" id = "track-long-term" value = "long-term-button">
+                    <label for = "track-long-term">All time</label>
                 </div>
             </div>
 
@@ -72,7 +84,7 @@
                     {% for track in userTopTracks %}
                     <tr>
                       <td class = "rank">{{loop.index}}</td>
-                      <td>
+                      <td class = "track-image-cells">
                         <img src = {{track.track_images[0].url}} class = "track-image" alt = "Track Image">
                       </td>
                       <td class = "track-and-artist-name"> 
