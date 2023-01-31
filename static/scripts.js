@@ -1,10 +1,10 @@
 
-// time range buttons ----------------------------------------------------------------
+// time range radio buttons ----------------------------------------------------------------
 
-var buttons = document.querySelectorAll(".time-range-menu");
+var radioButtons = document.querySelectorAll(".time-range-menu input[type = 'radio']");
 
-buttons.forEach( function (element) {
-    element.addEventListener("click", timeRangeButton);
+radioButtons.forEach( function (e) {
+    e.addEventListener("click", timeRangeButton);
 });
 
 async function fetchData(itemType, timeRange) {
@@ -14,6 +14,7 @@ async function fetchData(itemType, timeRange) {
     return data;
 }
 
+// creating the top artists container for the given time range
 function formatTopArtists(data) {
     const topArtistsContainer = document.querySelector("#top-artists-container");
     topArtistsContainer.innerHTML = ""; // clear the content
@@ -47,6 +48,7 @@ function formatTopArtists(data) {
     }
 }
 
+// creating the top tracks container for the given time range
 function formatTopTracks(data) {
     const tracksTableBody = document.querySelector("#tracks-table-body");
     
@@ -63,6 +65,7 @@ function formatTopTracks(data) {
 
         // table cell for the track image
         let trackImageCell = row.insertCell(1);
+        trackImageCell.setAttribute("class", "track-image-cell");
         let trackImage = document.createElement("img");
         trackImage.setAttribute("class", "track-image");
         trackImage.src = data[i].track_images[0].url;
@@ -86,16 +89,15 @@ function loadData(itemType, timeRange) {
         if (itemType == "artists") { 
             formatTopArtists(data);
         }
-    
         else if (itemType == "tracks") {
             formatTopTracks(data);
         }
     });
-
 }
 
 function timeRangeButton(e) {
-    var clickedButton = e.target.id;
+
+    var clickedButton = e.target.value;
     var buttonParentID = e.target.parentNode.id; 
 
     // determining item type
@@ -106,7 +108,7 @@ function timeRangeButton(e) {
         itemType = "tracks";
     }
 
-    // determining time range
+    // // determining time range
     if (clickedButton == "short-term-button") {
         timeRange = "short_term";
     }
@@ -116,7 +118,6 @@ function timeRangeButton(e) {
     else { // or just do else if?? or do all of these as switch statemetns
         timeRange = "long_term";
     }
-
     loadData(itemType, timeRange);
   }
 

@@ -147,36 +147,12 @@ body#favourites {
 
 /* time range buttons */
 
-/* .time-range-menu label {
-    background-color: pink;
-} */
-
-/* .time-range-menu input:checked + label {
-    border: 2px solid var(--primary-color); 
-    outline: none;
-}
-
-.time-range-menu input[type="radio"]:hover {
-    background-color: yellow;
-} */
-
-/* input[type="radio"]:focus {
-    outline: none !important;
-    box-shadow: none;
-} */
-
-/* input[type = 'radio'] { */
-    /* border: 2px solid var(--primary-color); 
-} */
-
-/* hides the check boxes */
 .time-range-menu input[type = "radio"] {
     opacity: 0;
     position: fixed;
     width: 0;
 }
 
-/* default */
 .time-range-menu label {
     background-color: transparent;
     outline: none;
@@ -189,67 +165,20 @@ body#favourites {
     margin-right: 5px;
 }
 
+.time-range-menu input[type = "radio"]:hover {
+    background-color: yellow;
+} 
+
 .time-range-menu input[type = "radio"]:checked + label {
-    /* background-color: var(--time-range-color); */
     background-color: var(--time-range-color);
     color: white;
-    /* background-color: transparent; */
-    /* border: 2px solid var(--primary-color);  */
-    /* border: none; */
-    /* background-color: #2E3438; */
-    /* border: 2px solid var(--primary-color);  */
     cursor: pointer;
 }
 
 .time-range-menu label:hover {
     color: white;
-
-
+    cursor: pointer;
 }
-
-/* .time-range-menu input[type = "radio"]:focus + label {
-    /* background-color: var(--time-range-color); */
-    /* /* outline: none; 
-    background-color: transparent;
-    border: 2px solid var(--primary-color);  */
-    /* cursor: pointer;
-} */ 
-
-/* .time-range-menu {
-    justify-content: center;
-}
-
-.time-range-button {
-    background-color: transparent;
-    outline: none;
-    color: white;
-    border: none;
-    padding: 5px 10px;
-    border-radius: 10px;
-    font-size: 14px;
-    text-transform: uppercase;
-    margin-right: 5px;
-    transition: all 0.3s ease 0s;
-}
-
-button:hover.time-range-button {
-    background-color: #2E3438;
-    border: none;
-}
-
-button:active.time-range-button {
-    color: #2E3438;
-    border: none;
-}
-
-button:focus.time-range-button {
-    background-color: #2E3438;
-    outline: none;
-    border: 2px solid var(--primary-color); 
-} */
-
-
-
 
 /* top tracks */
 
@@ -264,6 +193,10 @@ button:focus.time-range-button {
     vertical-align: middle;
     text-align: center;
     font-size: 15px;
+}
+
+.track-image-cell {
+    text-align: center;
 }
 
 .track-image {
