@@ -1,10 +1,91 @@
 
+
+// colours for top genres and decades charts ----------------------------------------------------------------
+const doughnutChartColor = ["#ffffff", "#ccccff", "#9a9aff", "#380EB9", "#1b1b82"];
+const barChartColor = "#00E0C6";
+const labelTextColor = "white";
+
+
+// default top genres and decades charts ----------------------------------------------------------------
+
+labels = [];
+values = [];
+
+const barChart = createBarChart(labels, values); // global variable (ik ik bad practice)
+loadData("genres", "short_term");
+
+//const doughnutChart = createDoughnutChart(labels, values);
+
+// top genres chart ----------------------------------------------------------------
+
+function createBarChart(labels, values) {
+
+    // set-up block
+    const data = {
+        labels: labels,
+        datasets: [{
+            label: "# of songs",
+            data: values,
+            borderWidth: 1,
+            backgroundColor: barChartColor,
+        }]
+    };
+    
+    // config block
+    const config = {
+        type: "bar",
+        data: data,
+        options: {
+            responsive: true,
+            indexAxis: "y",
+            scales: {
+                x: {
+                    grid: {
+                        display: false
+                    },
+                    ticks: {
+                        display: false
+                    }
+                },
+                y: {
+                    grid: {
+                        display: false
+                    },
+                    ticks: {
+                        color: labelTextColor,
+                        font: {
+                            family: "Lato"
+                        }
+                    }
+                }
+            },
+            plugins: {
+                tooltip: {
+                    enabled: false
+                },
+                legend: {
+                    display: false
+                }
+            }
+        }
+    };
+
+    // render block
+    const genresChart = new Chart (
+        document.getElementById('genresBarChart'),
+        config
+    );
+
+    return genresChart;
+}
+
+
 // time range radio buttons ----------------------------------------------------------------
 
 var radioButtons = document.querySelectorAll(".time-range-menu input[type = 'radio']");
 
-radioButtons.forEach( function (e) {
-    e.addEventListener("click", timeRangeButton);
+radioButtons.forEach( function (element) {
+    element.addEventListener("click", timeRangeButton);
 });
 
 async function fetchData(itemType, timeRange) {
@@ -84,6 +165,45 @@ function formatTopTracks(data) {
     }
 }
 
+function formatTopGenres(data) {
+    let labels = Object.keys(data);
+    let values = Object.values(data);
+    updateChart(barChart, labels, values);
+}
+
+// removes labels and values from the chart
+// assuming only one dataset is being used
+function clearData(chart, noAnimation = "none") {
+    // remove each of the labels
+    while (chart.data.labels.length > 0) { 
+        chart.data.labels.pop();
+        chart.data.datasets[0].data.pop(); // remove all the data from the first dataset (assuming it's the only one)
+    }
+    chart.update(noAnimation);
+}
+
+// updates the chart with completely new labels and values
+function updateChart(chart, labels, values, noAnimation = "none") {
+
+    // first, remove the pre-existing labels and values
+    clearData(chart);
+
+    labels.forEach((label) => {
+        chart.data.labels.push(label);
+    });
+
+    values.forEach((value) => {
+        chart.data.datasets.forEach((dataset) => {
+            dataset.data.push(value);
+        });
+    });
+
+    // note to self: uncomment if want to remove animation
+    //chart.update(noAnimation);
+    chart.update();
+}
+
+// calls fetch API and retrieves information about corresponding item type
 function loadData(itemType, timeRange) {
     fetchData(itemType, timeRange).then((data) => {
         if (itemType == "artists") { 
@@ -92,9 +212,13 @@ function loadData(itemType, timeRange) {
         else if (itemType == "tracks") {
             formatTopTracks(data);
         }
+        else if (itemType == "genres") {
+            formatTopGenres(data);
+        }
     });
 }
 
+// defines behaviour of radio button depending which one in which group was selected
 function timeRangeButton(e) {
 
     var clickedButton = e.target.value;
@@ -107,15 +231,18 @@ function timeRangeButton(e) {
     else if (buttonParentID == "track-buttons") {
         itemType = "tracks";
     }
+    else if (buttonParentID == "genre-buttons") {
+        itemType = "genres";
+    }
 
-    // // determining time range
+    // determining time range
     if (clickedButton == "short-term-button") {
         timeRange = "short_term";
     }
     else if (clickedButton == "medium-term-button") {
         timeRange = "medium_term";
     }
-    else { // or just do else if?? or do all of these as switch statemetns
+    else { 
         timeRange = "long_term";
     }
     loadData(itemType, timeRange);
