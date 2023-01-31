@@ -5,7 +5,7 @@ from dotenv import load_dotenv
 import json
 import os
 
-from api import getAuthURL, getAuthData, getCurrentUserProfile, getUserTopArtists, getUserTopTracks
+from api import getAuthURL, getAuthData, getCurrentUserProfile, getUserTopArtists, getUserTopTracks, getUserTopGenres
 
 load_dotenv()
 
@@ -90,8 +90,8 @@ def favouritesUserData(itemType, timeRange):
             return json.dumps(getUserTopArtists(accessToken, NUMBER_OF_ARTISTS, timeRange)) 
         elif itemType == "tracks":
             return json.dumps(getUserTopTracks(accessToken, NUMBER_OF_TRACKS, timeRange))
-        # elif itemType == "genres":
-        #     return json.dumps(getUserTopGenres(accessToken, 50, timeRange))
+        elif itemType == "genres":
+            return json.dumps(getUserTopGenres(accessToken, 50, timeRange))
         # elif itemType == "decades":
         #     return json.dumps(getUserTopDecades(accessToken, 50, timeRange))
         # elif tracks, else error TODO: add error for else
