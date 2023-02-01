@@ -4,6 +4,8 @@ import requests
 import base64
 import json
 from collections import Counter
+from datetime import datetime
+from math import floor
 
 # TODO: rename to auth or spotifyapi?? then put this + helpers.py in a folder just called SpotifyAPI (find folder naming conv)
 # (call these auth)
@@ -147,4 +149,41 @@ def getUserTopGenres(accessToken, limit, timeRange):
     # get the 10 largest values in the dict (note: they will always be out of order)
     userTop10Genres = dict(Counter(genresList).most_common(10))
     return userTop10Genres
+
+
+# given release date precision, returns the year released
+def getReleaseYear(relDateStr, relDatePrecision):
+    if relDatePrecision == "day":
+        dateFormat = "%Y-%m-%d"
+    elif relDatePrecision == "month":
+        dateFormat = "%Y-%m"
+    else:
+        dateFormat = "%Y"
+    relDate = datetime.strptime(relDateStr, dateFormat).date()
+    return relDate.year
+
+# returns a list of release years for tracks
+def getTracksReleaseYear(accessToken, limit, timeRange):
+    itemsJSON = getUserTopItems(accessToken, "tracks", limit, timeRange)
+    releaseYears = []
+    for track in itemsJSON:
+        relDateStr = track["album"]["release_date"]
+        relDatePrecision = track["album"]["release_date_precision"]
+        releaseYear = getReleaseYear(relDateStr, relDatePrecision)
+        releaseYears.append(releaseYear)
+    return releaseYears
+
+# for the given list of track release years, find the decade that each belongs to
+# returns a dictionary of the user's top 5 most listened to decades for a given list of track release years
+def getUserTopDecades(accessToken, limit, timeRange):
+    releaseYears = getTracksReleaseYear(accessToken, limit, timeRange)
+    decades = []
+    for year in releaseYears:
+        decade = floor(year/10)*10
+        decades.append(decade)
+    # gets the unique decades (use as the labels)
+    decadeFreq = dict(Counter(decades).most_common(5))
+    return decadeFreq
+
+
 

@@ -5,7 +5,7 @@ from dotenv import load_dotenv
 import json
 import os
 
-from api import getAuthURL, getAuthData, getCurrentUserProfile, getUserTopArtists, getUserTopTracks, getUserTopGenres
+from api import getAuthURL, getAuthData, getCurrentUserProfile, getUserTopArtists, getUserTopTracks, getUserTopGenres, getUserTopDecades
 
 load_dotenv()
 
@@ -91,9 +91,9 @@ def favouritesUserData(itemType, timeRange):
         elif itemType == "tracks":
             return json.dumps(getUserTopTracks(accessToken, NUMBER_OF_TRACKS, timeRange))
         elif itemType == "genres":
-            return json.dumps(getUserTopGenres(accessToken, 50, timeRange))
-        # elif itemType == "decades":
-        #     return json.dumps(getUserTopDecades(accessToken, 50, timeRange))
+            return json.dumps(getUserTopGenres(accessToken, NUMBER_OF_GENRES, timeRange))
+        elif itemType == "decades":
+            return json.dumps(getUserTopDecades(accessToken, NUMBER_OF_DECADES, timeRange))
         # elif tracks, else error TODO: add error for else
 
 @app.route("/logout")

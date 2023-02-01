@@ -182,6 +182,13 @@ body#favourites {
 
 /* top tracks */
 
+/* testin */
+/* .content-element#track-section {
+    margin-left: 180px;
+    margin-right: 180px;
+} */
+
+
 .table {
     margin: 0 auto;
     width: 80%; 
@@ -200,8 +207,8 @@ body#favourites {
 }
 
 .track-image {
-    max-width: 50px;
-    width: 50px;
+    max-width: 80px;
+    width: 80px;
     width: auto;
 }
 
@@ -220,10 +227,19 @@ body#favourites {
 
 /* top genres */
 
-.chartBox {
-    width: 600px;  
+/* .chartBox {
+    /* width: 600px;   */
+    /* text-align: center; 
 } 
 
+.doughnutBox {
+    /* text-align: center; 
+}
+ */
 
+ .chart {
+    width: 70%;
+    /* margin: 20px auto; */
+ }
 
 
