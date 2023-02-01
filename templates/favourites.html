@@ -124,11 +124,31 @@
                     <canvas id = "genresBarChart"></canvas>
                 </div>
 
-
-
-
         </section>
-        
+
+        <!-- top decades -->
+        <section class = "content-element">
+
+            <div class = "item-title-container">
+                <div class = "top-items-title">Top Decades</div>
+
+                <div class = "time-range-menu" id = "decade-buttons">
+                    <input type = "radio" name = "decadwe-time-ranges" id = "decade-short-term" value = "short-term-button" checked>
+                    <label for = "decade-short-term"">Past 4 weeks</label>
+                    
+                    <input type = "radio" name = "decade-time-ranges" id = "decade-medium-term" value = "medium-term-button">
+                    <label for = "decade-medium-term">Past 6 months</label>
+
+                    <input type = "radio" name = "decade-time-ranges" id = "decade-long-term" value = "long-term-button">
+                    <label for = "decade-long-term">All time</label>
+                </div>
+            </div>
+                  
+                <div class = "doughnutBox">
+                    <canvas id = "decadesDoughnutChart"></canvas>
+                </div>
+                
+        </section>
         
 
     </div>
