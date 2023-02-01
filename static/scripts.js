@@ -213,8 +213,12 @@ function formatTopTracks(data) {
         trackContainer.setAttribute("class", "container");
         trackArtistNameCell.appendChild(trackContainer);
 
-        let trackArtistNameContent = '<div class = "row" id = "track-name">' + data[i].track_name + '</div><div class = "row" id = "artist-name">' + data[i].artist_name + '</div>';
-        trackContainer.insertAdjacentHTML("afterbegin", trackArtistNameContent);
+        let trackContainerRow = document.createElement("div");
+        trackContainerRow.setAttribute("class", "row");
+        trackContainer.appendChild(trackContainerRow);
+
+        let trackArtistNameContent = '<div class = "col-xs-6" id = "track-name">' + data[i].track_name + '</div><div class = "col-xs-6" id = "artist-name">' + data[i].artist_name + '</div>';
+        trackContainerRow.insertAdjacentHTML("afterbegin", trackArtistNameContent);
     }
 }
 
