@@ -61,109 +61,120 @@
 
         </section>
 
-        <!-- top tracks -->
-        <section class = "content-element">
 
-            <div class = "item-title-container">
-                <div class = "top-items-title">Top Tracks</div>
 
-                <div class = "time-range-menu" id = "track-buttons">
-                    <input type = "radio" name = "track-time-ranges" id = "track-short-term" value = "short-term-button" checked>
-                    <label for = "track-short-term"">Past 4 weeks</label>
-                    
-                    <input type = "radio" name = "track-time-ranges" id = "track-medium-term" value = "medium-term-button">
-                    <label for = "track-medium-term">Past 6 months</label>
+        <div class = "container">
+            <div class = "row">
+                <div class = "col-md-6">
+                    <!-- top tracks -->
+                    <section class = "content-element" id = "top-tracks">
 
-                    <input type = "radio" name = "track-time-ranges" id = "track-long-term" value = "long-term-button">
-                    <label for = "track-long-term">All time</label>
+                        <div class = "item-title-container">
+                            <div class = "top-items-title">Top Tracks</div>
+
+                            <div class = "time-range-menu" id = "track-buttons">
+                                <input type = "radio" name = "track-time-ranges" id = "track-short-term" value = "short-term-button" checked>
+                                <label for = "track-short-term"">Past 4 weeks</label>
+                                
+                                <input type = "radio" name = "track-time-ranges" id = "track-medium-term" value = "medium-term-button">
+                                <label for = "track-medium-term">Past 6 months</label>
+
+                                <input type = "radio" name = "track-time-ranges" id = "track-long-term" value = "long-term-button">
+                                <label for = "track-long-term">All time</label>
+                            </div>
+                        </div>
+
+                        <div class = "table" id = "tracks-table"> 
+                            <table class = "table table-hover table-border-bottom">
+                            <tbody id = "tracks-table-body">
+                                {% for track in userTopTracks %}
+                                <tr>
+                                <td class = "rank">{{loop.index}}</td>
+                                <td class = "track-image-cell">
+                                    <img src = {{track.track_images[0].url}} class = "track-image" alt = "Track Image">
+                                </td>
+                                <td class = "track-and-artist-name"> 
+                                    <div class = "container">
+                                        <div class = "row">
+                                            <div class = "col-xs-6" id = "track-name">{{track.track_name}}</div>
+                                            <div class = "col-xs-6" id = "artist-name">{{track.artist_name}}</div>
+                                        </div>
+
+                                    </div>
+                                </td>
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                            </table>
+                        </div> 
+
+                    </section>
                 </div>
-            </div>
 
-            <div class = "table" id = "tracks-table"> 
-                <table class = "table table-hover table-border-bottom">
-                  <tbody id = "tracks-table-body">
-                    {% for track in userTopTracks %}
-                    <tr>
-                      <td class = "rank">{{loop.index}}</td>
-                      <td class = "track-image-cell">
-                        <img src = {{track.track_images[0].url}} class = "track-image" alt = "Track Image">
-                      </td>
-                      <td class = "track-and-artist-name"> 
-                        <div class = "container">
-                            <div class = "row">
-                                <div class = "col-xs-6" id = "track-name">{{track.track_name}}</div>
-                                <div class = "col-xs-6" id = "artist-name">{{track.artist_name}}</div>
+                <div class = "col-md-6">
+                    <div>
+                        <!-- top genres -->
+                        <section class = "content-element" id = "top-genres">
+
+                            <div class = "item-title-container">
+                                <div class = "top-items-title">Top Genres</div>
+
+                                <div class = "time-range-menu" id = "genre-buttons">
+                                    <input type = "radio" name = "genre-time-ranges" id = "genre-short-term" value = "short-term-button" checked>
+                                    <label for = "genre-short-term"">Past 4 weeks</label>
+                                    
+                                    <input type = "radio" name = "genre-time-ranges" id = "genre-medium-term" value = "medium-term-button">
+                                    <label for = "genre-medium-term">Past 6 months</label>
+
+                                    <input type = "radio" name = "genre-time-ranges" id = "genre-long-term" value = "long-term-button">
+                                    <label for = "genre-long-term">All time</label>
+                                </div>
                             </div>
 
-                        </div>
-                      </td>
-                    </tr>
-                    {% endfor %}
-                  </tbody>
-                </table>
-            </div> 
+                            <div class = "container chart">
+                                <div class = "chartBox">
+                                    <canvas id = "genresBarChart"></canvas>
+                                </div>
+                            </div>
 
-        </section>
+                        </section>
+                        
+                    </div>
+                    <div>
+                        <!-- top decades -->
+                        <section class = "content-element">
 
-        <!-- top genres -->
-        <section class = "content-element">
+                            <div class = "item-title-container">
+                                <div class = "top-items-title">Top Decades</div>
 
-            <div class = "item-title-container">
-                <div class = "top-items-title">Top Genres</div>
+                                <div class = "time-range-menu" id = "decade-buttons">
+                                    <input type = "radio" name = "decade-time-ranges" id = "decade-short-term" value = "short-term-button" checked>
+                                    <label for = "decade-short-term"">Past 4 weeks</label>
+                                    
+                                    <input type = "radio" name = "decade-time-ranges" id = "decade-medium-term" value = "medium-term-button">
+                                    <label for = "decade-medium-term">Past 6 months</label>
 
-                <div class = "time-range-menu" id = "genre-buttons">
-                    <input type = "radio" name = "genre-time-ranges" id = "genre-short-term" value = "short-term-button" checked>
-                    <label for = "genre-short-term"">Past 4 weeks</label>
-                    
-                    <input type = "radio" name = "genre-time-ranges" id = "genre-medium-term" value = "medium-term-button">
-                    <label for = "genre-medium-term">Past 6 months</label>
+                                    <input type = "radio" name = "decade-time-ranges" id = "decade-long-term" value = "long-term-button">
+                                    <label for = "decade-long-term">All time</label>
+                                </div>
+                            </div>
 
-                    <input type = "radio" name = "genre-time-ranges" id = "genre-long-term" value = "long-term-button">
-                    <label for = "genre-long-term">All time</label>
+                            <div class = "container chart">
+                                <div class = "doughnutBox">
+                                    <canvas id = "decadesDoughnutChart"></canvas>
+                                </div>
+                            </div>
+                                
+                        </section>
+                    </div>
+
                 </div>
             </div>
-
-            <div class = "container chart">
-                <div class = "chartBox">
-                    <canvas id = "genresBarChart"></canvas>
-                </div>
-            </div>
-
-
-
-        </section>
-
-        <!-- top decades -->
-        <section class = "content-element">
-
-            <div class = "item-title-container">
-                <div class = "top-items-title">Top Decades</div>
-
-                <div class = "time-range-menu" id = "decade-buttons">
-                    <input type = "radio" name = "decade-time-ranges" id = "decade-short-term" value = "short-term-button" checked>
-                    <label for = "decade-short-term"">Past 4 weeks</label>
-                    
-                    <input type = "radio" name = "decade-time-ranges" id = "decade-medium-term" value = "medium-term-button">
-                    <label for = "decade-medium-term">Past 6 months</label>
-
-                    <input type = "radio" name = "decade-time-ranges" id = "decade-long-term" value = "long-term-button">
-                    <label for = "decade-long-term">All time</label>
-                </div>
-            </div>
-
-            <div class = "container chart">
-                <div class = "doughnutBox">
-                    <canvas id = "decadesDoughnutChart"></canvas>
-                </div>
-            </div>
-                  
-
-                
-        </section>
-        
+        </div>
 
     </div>
 
   </body>
 
 </html>
+

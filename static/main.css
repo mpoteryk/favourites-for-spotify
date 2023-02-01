@@ -182,17 +182,23 @@ body#favourites {
 
 /* top tracks */
 
-/* testin */
-/* .content-element#track-section {
-    margin-left: 180px;
-    margin-right: 180px;
+/* .content-element#top-tracks {
+    width: 50%;
+}
+
+.content-element#top-genres {
+    width: 50%;
 } */
 
+/* .content-element#top-genres {
+    width: 50%;
+} */
 
 .table {
-    margin: 0 auto;
+    /* margin: 0 auto; */
     width: 80%; 
     font-size: 14px;
+    /* padding-bottom: 20px; */
 }
 
 .rank {
@@ -207,8 +213,8 @@ body#favourites {
 }
 
 .track-image {
-    max-width: 80px;
-    width: 80px;
+    max-width: 60px;
+    width: 60px;
     width: auto;
 }
 
@@ -237,9 +243,9 @@ body#favourites {
 }
  */
 
- .chart {
+ /* .chart {
     width: 70%;
-    /* margin: 20px auto; */
- }
+    /* margin: 20px auto; 
+ } */
 
 
