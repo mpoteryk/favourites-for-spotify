@@ -29,6 +29,7 @@ function createBarChart(labels, values) {
         data: data,
         options: {
             responsive: true,
+            maintainAspectRatio: false,
             indexAxis: "y",
             scales: {
                 x: {
@@ -47,7 +48,8 @@ function createBarChart(labels, values) {
                         color: labelTextColor,
                         font: {
                             family: "Lato"
-                        }
+                        },
+                        autoSkip: false
                     }
                 }
             },
@@ -93,6 +95,7 @@ function createDoughnutChart(labels, values) {
         data: data, 
         options: {
             responsive: true,
+            maintainAspectRatio: false,
             plugins: {
                 legend: {
                     position: "right",

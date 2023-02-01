@@ -11,108 +11,110 @@
   </head>
 
   <body id = "favourites">
-    <div class = "container">
+    <!-- <div class = "container"> -->
 
-        <!-- user profile -->
-        <div class = "header-element">
-            <div class = "profile-header">
-                <div class = "profile-image">
-                <img src = {{userProfile.profile_image}} class = "rounded-circle" alt = "User Profile Image">
+    <!-- user profile -->
+    <div class = "header-element">
+        <div class = "profile-header">
+            <div class = "profile-image">
+            <img src = {{userProfile.profile_image}} class = "rounded-circle" alt = "User Profile Image">
+            </div>
+            <div class = "user-profile-text"">{{userProfile.display_name}}'s favourites</div>
+        </div>
+        <div class = "log-out-container">
+            <a href = "{{ url_for('logout') }}"><button type = "button" class = "log-in-out-button" id = "log-out">Logout</button></a>
+        </div>
+    </div>
+
+    <!-- top artists -->
+    <section class = "content-element">
+
+        <div class = "item-title-container">
+            <div class = "top-items-title">Top Artists</div>
+
+                <div class = "time-range-menu" id = "artist-buttons">
+                    <input type = "radio" name = "artist-time-ranges" id = "artist-short-term" value = "short-term-button" checked>
+                    <label for = "artist-short-term"">Past 4 weeks</label>
+                    
+                    <input type = "radio" name = "artist-time-ranges" id = "artist-medium-term" value = "medium-term-button">
+                    <label for = "artist-medium-term">Past 6 months</label>
+
+                    <input type = "radio" name = "artist-time-ranges" id = "artist-long-term" value = "long-term-button">
+                    <label for = "artist-long-term">All time</label>
                 </div>
-                <div class = "user-profile-text"">{{userProfile.display_name}}'s favourites</div>
-            </div>
-            <div class = "log-out-container">
-                <a href = "{{ url_for('logout') }}"><button type = "button" class = "log-in-out-button" id = "log-out">Logout</button></a>
-            </div>
         </div>
 
-        <!-- top artists -->
-        <section class = "content-element">
-
-            <div class = "item-title-container">
-                <div class = "top-items-title">Top Artists</div>
-
-                    <div class = "time-range-menu" id = "artist-buttons">
-                        <input type = "radio" name = "artist-time-ranges" id = "artist-short-term" value = "short-term-button" checked>
-                        <label for = "artist-short-term"">Past 4 weeks</label>
-                        
-                        <input type = "radio" name = "artist-time-ranges" id = "artist-medium-term" value = "medium-term-button">
-                        <label for = "artist-medium-term">Past 6 months</label>
-
-                        <input type = "radio" name = "artist-time-ranges" id = "artist-long-term" value = "long-term-button">
-                        <label for = "artist-long-term">All time</label>
-                    </div>
-            </div>
-
-            <div class = "container" id = "top-artists-container">
-                <div class = "row">
-                    {% for artist in userTopArtists %}
-                    <div class = "col">
-                        <div class = "card" id = "artist-card">
-                            <img src = {{artist.artist_images[0].url}} class = "card-img-top" id = "artist-img" alt = "Artist Image">
-                            <div class = "card-body" id = "artist-text">
-                                <p class = "card-text">{{artist.artist_name}}</p>
-                            </div>
-                        </div>
-                    </div>
-                    {% endfor %}
-                  </div>  
-            </div>
-
-        </section>
-
-
-
-        <div class = "container">
+        <div class = "container" id = "top-artists-container">
             <div class = "row">
-                <div class = "col-md-6">
-                    <!-- top tracks -->
-                    <section class = "content-element" id = "top-tracks">
-
-                        <div class = "item-title-container">
-                            <div class = "top-items-title">Top Tracks</div>
-
-                            <div class = "time-range-menu" id = "track-buttons">
-                                <input type = "radio" name = "track-time-ranges" id = "track-short-term" value = "short-term-button" checked>
-                                <label for = "track-short-term"">Past 4 weeks</label>
-                                
-                                <input type = "radio" name = "track-time-ranges" id = "track-medium-term" value = "medium-term-button">
-                                <label for = "track-medium-term">Past 6 months</label>
-
-                                <input type = "radio" name = "track-time-ranges" id = "track-long-term" value = "long-term-button">
-                                <label for = "track-long-term">All time</label>
-                            </div>
+                {% for artist in userTopArtists %}
+                <div class = "col">
+                    <div class = "card" id = "artist-card">
+                        <img src = {{artist.artist_images[0].url}} class = "card-img-top" id = "artist-img" alt = "Artist Image">
+                        <div class = "card-body" id = "artist-text">
+                            <p class = "card-text">{{artist.artist_name}}</p>
                         </div>
-
-                        <div class = "table" id = "tracks-table"> 
-                            <table class = "table table-hover table-border-bottom">
-                            <tbody id = "tracks-table-body">
-                                {% for track in userTopTracks %}
-                                <tr>
-                                <td class = "rank">{{loop.index}}</td>
-                                <td class = "track-image-cell">
-                                    <img src = {{track.track_images[0].url}} class = "track-image" alt = "Track Image">
-                                </td>
-                                <td class = "track-and-artist-name"> 
-                                    <div class = "container">
-                                        <div class = "row">
-                                            <div class = "col-xs-6" id = "track-name">{{track.track_name}}</div>
-                                            <div class = "col-xs-6" id = "artist-name">{{track.artist_name}}</div>
-                                        </div>
-
-                                    </div>
-                                </td>
-                                </tr>
-                                {% endfor %}
-                            </tbody>
-                            </table>
-                        </div> 
-
-                    </section>
+                    </div>
                 </div>
+                {% endfor %}
+                </div>  
+        </div>
 
-                <div class = "col-md-6">
-                    <div>
+    </section>
+
+
+
+    <div class = "container">
+        <div class = "row myRow">
+            <div class = "col-md-6 myCol">
+                <!-- top tracks -->
+                <section class = "content-element" id = "top-tracks">
+
+                    <div class = "item-title-container">
+                        <div class = "top-items-title">Top Tracks</div>
+
+                        <div class = "time-range-menu" id = "track-buttons">
+                            <input type = "radio" name = "track-time-ranges" id = "track-short-term" value = "short-term-button" checked>
+                            <label for = "track-short-term"">Past 4 weeks</label>
+                            
+                            <input type = "radio" name = "track-time-ranges" id = "track-medium-term" value = "medium-term-button">
+                            <label for = "track-medium-term">Past 6 months</label>
+
+                            <input type = "radio" name = "track-time-ranges" id = "track-long-term" value = "long-term-button">
+                            <label for = "track-long-term">All time</label>
+                        </div>
+                    </div>
+
+                    <div class = "table" id = "tracks-table"> 
+                        <table class = "table table-hover table-border-bottom">
+                        <tbody id = "tracks-table-body">
+                            {% for track in userTopTracks %}
+                            <tr>
+                            <td class = "rank">{{loop.index}}</td>
+                            <td class = "track-image-cell">
+                                <img src = {{track.track_images[0].url}} class = "track-image" alt = "Track Image">
+                            </td>
+                            <td class = "track-and-artist-name"> 
+                                <div class = "container">
+                                    <div class = "row">
+                                        <div class = "col-xs-6" id = "track-name">{{track.track_name}}</div>
+                                        <div class = "col-xs-6" id = "artist-name">{{track.artist_name}}</div>
+                                    </div>
+
+                                </div>
+                            </td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                        </table>
+                    </div> 
+
+                </section>
+            </div>
+
+            <div class = "col-md-6 myCol">
+                <div class = "row">
+                    <div class = "col-12 myInnerCol">
+
                         <!-- top genres -->
                         <section class = "content-element" id = "top-genres">
 
@@ -136,11 +138,12 @@
                                     <canvas id = "genresBarChart"></canvas>
                                 </div>
                             </div>
-
                         </section>
-                        
+
                     </div>
-                    <div>
+            
+                    <div class = "col-12 myInnerCol">
+
                         <!-- top decades -->
                         <section class = "content-element">
 
@@ -164,15 +167,17 @@
                                     <canvas id = "decadesDoughnutChart"></canvas>
                                 </div>
                             </div>
-                                
                         </section>
+
                     </div>
 
                 </div>
             </div>
-        </div>
 
+        </div>
     </div>
+
+    <!-- </div> -->
 
   </body>
 
