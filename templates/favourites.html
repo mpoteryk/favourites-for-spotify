@@ -85,13 +85,16 @@
                     {% for track in userTopTracks %}
                     <tr>
                       <td class = "rank">{{loop.index}}</td>
-                      <td class = "track-image-cells">
+                      <td class = "track-image-cell">
                         <img src = {{track.track_images[0].url}} class = "track-image" alt = "Track Image">
                       </td>
                       <td class = "track-and-artist-name"> 
                         <div class = "container">
-                            <div class = "row" id = "track-name">{{track.track_name}}</div>
-                            <div class = "row" id = "artist-name">{{track.artist_name}}</div>
+                            <div class = "row">
+                                <div class = "col-xs-6" id = "track-name">{{track.track_name}}</div>
+                                <div class = "col-xs-6" id = "artist-name">{{track.artist_name}}</div>
+                            </div>
+
                         </div>
                       </td>
                     </tr>
