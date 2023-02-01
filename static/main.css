@@ -14,7 +14,12 @@
 
 body#index-page {
     background-image: url("img/indexBackground.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
     background-attachment: fixed;
+    height: 100%;
+    overflow: hidden;
     margin: 0;
     font-family: 'Lato';
 }
