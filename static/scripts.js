@@ -1,22 +1,14 @@
 
-
-// colours for top genres and decades charts ----------------------------------------------------------------
+// ---------------------------------------------------------
+// colours for top genres and decades charts 
+// ---------------------------------------------------------
 const doughnutChartColor = ["#ffffff", "#ccccff", "#9a9aff", "#380EB9", "#1b1b82"];
 const barChartColor = "#00E0C6";
 const labelTextColor = "white";
 
-
-// default top genres and decades charts ----------------------------------------------------------------
-
-labels = [];
-values = [];
-
-const barChart = createBarChart(labels, values); // global variable (ik ik bad practice)
-loadData("genres", "short_term");
-
-//const doughnutChart = createDoughnutChart(labels, values);
-
-// top genres chart ----------------------------------------------------------------
+// ---------------------------------------------------------
+// top genres chart
+// ---------------------------------------------------------
 
 function createBarChart(labels, values) {
 
@@ -79,8 +71,69 @@ function createBarChart(labels, values) {
     return genresChart;
 }
 
+// ---------------------------------------------------------
+// top decades chart 
+// ---------------------------------------------------------
 
-// time range radio buttons ----------------------------------------------------------------
+function createDoughnutChart(labels, values) {
+
+    // set-up block
+    const data = {
+        labels: labels,
+        datasets: [{
+          label: '# of songs',
+          data: values,
+          backgroundColor: doughnutChartColor,
+          hoverOffset: 4
+        }]
+      };
+      // config
+      const config = {
+        type: 'doughnut',
+        data: data, 
+        options: {
+            responsive: true,
+            plugins: {
+                legend: {
+                    position: "right",
+                    labels: {
+                        color: labelTextColor,
+                        boxWidth: 50,
+                        font: {
+                            family: "Lato",
+                            size: 15
+                        }
+                    }
+                }
+            }
+        }
+      };
+
+      // render block
+      const decadesChart = new Chart (
+        document.getElementById('decadesDoughnutChart'),
+        config
+      );
+
+      return decadesChart;
+}
+
+// ---------------------------------------------------------
+// default top genres and decades charts 
+// ---------------------------------------------------------
+
+labels = [];
+values = [];
+
+const barChart = createBarChart(labels, values); // global variable (ik ik bad practice)
+loadData("genres", "short_term");
+
+const doughnutChart = createDoughnutChart(labels, values);
+loadData("decades", "short_term");
+
+// ---------------------------------------------------------
+// time range radio buttons
+// ---------------------------------------------------------
 
 var radioButtons = document.querySelectorAll(".time-range-menu input[type = 'radio']");
 
@@ -171,6 +224,12 @@ function formatTopGenres(data) {
     updateChart(barChart, labels, values);
 }
 
+function formatTopDecades(data) {
+    let labels = Object.keys(data);
+    let values = Object.values(data);
+    updateChart(doughnutChart, labels, values);
+}
+
 // removes labels and values from the chart
 // assuming only one dataset is being used
 function clearData(chart, noAnimation = "none") {
@@ -215,6 +274,9 @@ function loadData(itemType, timeRange) {
         else if (itemType == "genres") {
             formatTopGenres(data);
         }
+        else if (itemType == "decades") {
+            formatTopDecades(data);
+        }
     });
 }
 
@@ -233,6 +295,9 @@ function timeRangeButton(e) {
     }
     else if (buttonParentID == "genre-buttons") {
         itemType = "genres";
+    }
+    else if (buttonParentID == "decade-buttons") {
+        itemType = "decades";
     }
 
     // determining time range
