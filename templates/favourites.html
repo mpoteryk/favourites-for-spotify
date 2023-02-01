@@ -11,6 +11,37 @@
   </head>
 
   <body id = "favourites">
+
+    <div class = "navbar">
+        <div class = "container">
+            <h1 class = "nav-bar-web-app-name">Favourites for Spotify</h1>
+            <!-- <a href = "#" class = "primary-cta">
+                <!-- <img src = "/images/logo3.png" width = "70" height = "70" alt = """> 
+            </a> -->
+
+            <!-- <a class = "spotify-redirect-link" href = "https://open.spotify.com/">
+                <img src = "/static/img/Spotify_Icon_RGB_White.png" class = "spotify-logo" alt = "Spotify logo"> 
+                <span class = "spotify-logo-text">Open Spotify</span>
+            </a> -->
+
+            <!-- <a href = "#">Logout</a> -->
+
+            <a href = "#">
+                <button type = "button" class = "nav-bar-button">
+                    <img src = "/static/img/Spotify_Icon_RGB_White.png" class = "spotify-logo" alt = "Spotify logo"> 
+                    <span class = "spotify-logo-text">Open Spotify</span> 
+                </button>
+            </a>
+
+            <a href = "#">
+                <button type = "button" class = "nav-bar-button" id = "log-out">
+                    <span class = "spotify-logo-text">Logout</span>
+                </button>
+            </a>
+
+        </div>
+    </div>
+
     <div class = "container">
 
         <!-- user profile -->
@@ -21,9 +52,9 @@
                 </div>
                 <div class = "user-profile-text"">{{userProfile.display_name}}'s favourites</div>
             </div>
-            <div class = "log-out-container">
+            <!-- <div class = "log-out-container">
                 <a href = "{{ url_for('logout') }}"><button type = "button" class = "log-in-out-button" id = "log-out">Logout</button></a>
-            </div>
+            </div> -->
         </div>
 
         <!-- top artists -->

@@ -2,6 +2,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=League+Spartan:wght@600&display=swap');
 
 :root {
+    --nav-bar-color: #090A0B;
     --primary-color: #4825d4;
     --accent-color: #0CFFE1;
     --page-color: #131516;
@@ -58,6 +59,59 @@ body#index-page {
 
 /* --- favourites page --- */
 
+/* nav bar */
+
+.navbar {
+    background-color: transparent;
+    margin: 20px;
+}
+
+.nav-bar-web-app-name {
+    color: white;
+    font-weight: bold;
+    font-size: 25px;
+    font-family: 'League Spartan';
+}
+
+.spotify-redirect-link {
+    text-decoration: none;
+    padding-right: 15px;
+    border-right: 2px solid red;
+}
+
+.spotify-logo {
+    width: 20px;
+    height: 20px;
+    margin-right: 5px;
+}
+
+.spotify-logo-text {
+    color: white;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+
+
+.nav-bar-button {
+    background-color: transparent;
+    border: none;
+    padding: 5px 10px;
+    /* padding: 0.6em 1.3em; */
+    color: white;
+    font-size: 10pt;
+    font-weight: bold;
+
+}
+
+.nav-bar-button:hover {
+    border: 1px solid white;
+    /* padding: 0.6em 1.3em; */
+    border-radius: 10px;
+    /* color: black;
+    background-color: white; */
+}
+
 /* header for profile */
 
 body#favourites {
@@ -71,7 +125,7 @@ body#favourites {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin: 50px 10px 30px;
+    margin: 30px 10px 30px;
 }
 
 .profile-header {
@@ -100,9 +154,9 @@ body#favourites {
     align-items: center;
 }
 
-#log-out {
-    font-size: 12pt;
-}
+/* #log-out {
+    font-size: 10pt;
+} */
 
 /* top artists */
 
