@@ -27,39 +27,42 @@
     </div>
 
     <!-- top artists -->
-    <section class = "content-element">
+    <div class = "container">
+        <section class = "content-element">
 
-        <div class = "item-title-container">
-            <div class = "top-items-title">Top Artists</div>
-
-                <div class = "time-range-menu" id = "artist-buttons">
-                    <input type = "radio" name = "artist-time-ranges" id = "artist-short-term" value = "short-term-button" checked>
-                    <label for = "artist-short-term"">Past 4 weeks</label>
-                    
-                    <input type = "radio" name = "artist-time-ranges" id = "artist-medium-term" value = "medium-term-button">
-                    <label for = "artist-medium-term">Past 6 months</label>
-
-                    <input type = "radio" name = "artist-time-ranges" id = "artist-long-term" value = "long-term-button">
-                    <label for = "artist-long-term">All time</label>
-                </div>
-        </div>
-
-        <div class = "container" id = "top-artists-container">
-            <div class = "row">
-                {% for artist in userTopArtists %}
-                <div class = "col">
-                    <div class = "card" id = "artist-card">
-                        <img src = {{artist.artist_images[0].url}} class = "card-img-top" id = "artist-img" alt = "Artist Image">
-                        <div class = "card-body" id = "artist-text">
-                            <p class = "card-text">{{artist.artist_name}}</p>
+            <div class = "item-title-container">
+                <div class = "top-items-title">Top Artists</div>
+    
+                    <div class = "time-range-menu" id = "artist-buttons">
+                        <input type = "radio" name = "artist-time-ranges" id = "artist-short-term" value = "short-term-button" checked>
+                        <label for = "artist-short-term"">Past 4 weeks</label>
+                        
+                        <input type = "radio" name = "artist-time-ranges" id = "artist-medium-term" value = "medium-term-button">
+                        <label for = "artist-medium-term">Past 6 months</label>
+    
+                        <input type = "radio" name = "artist-time-ranges" id = "artist-long-term" value = "long-term-button">
+                        <label for = "artist-long-term">All time</label>
+                    </div>
+            </div>
+    
+            <div class = "container" id = "top-artists-container">
+                <div class = "row">
+                    {% for artist in userTopArtists %}
+                    <div class = "col">
+                        <div class = "card" id = "artist-card">
+                            <img src = {{artist.artist_images[0].url}} class = "card-img-top" id = "artist-img" alt = "Artist Image">
+                            <div class = "card-body" id = "artist-text">
+                                <p class = "card-text">{{artist.artist_name}}</p>
+                            </div>
                         </div>
                     </div>
-                </div>
-                {% endfor %}
-                </div>  
-        </div>
+                    {% endfor %}
+                    </div>  
+            </div>
+    
+        </section>
+    </div>
 
-    </section>
 
 
     <div class = "container">
