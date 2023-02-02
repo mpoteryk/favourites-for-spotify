@@ -187,18 +187,6 @@ body#favourites {
 
 /* top tracks */
 
-/* .content-element#top-tracks {
-    width: 50%;
-}
-
-.content-element#top-genres {
-    width: 50%;
-} */
-
-/* .content-element#top-genres {
-    width: 50%;
-} */
-
 .table {
     /* margin: 0 auto; */
     /* width: 80%;  */
@@ -236,41 +224,23 @@ body#favourites {
     color: grey;
 }
 
-/* top genres */
+/* top genres + top decades charts */
 
-
- 
- /* .chart {
-    border: 1px solid hotpink;
- } */
+ .chart {
+    /* border: 1px solid hotpink; */
+    /* margin:0 auto; */
+    padding-bottom: 0;
+    /* display: flex;
+    align-items: center;
+    flex: 1; */
+ }
 
  #genresBarChart {
     width: 100%;
     height: 100%;
+    /* border: 1px solid orange; */
  }
 
- /* #decadesDoughnutChart {
-    width: 100%;
-    height: 100%;
- } */
-
- /* testing --------------------------------- */
-
-
-/* 
-.myRow {
-    border: 1px solid red;
-}
-
-.myCol {
-    border: 1px solid yellow;
-    /* height: 100%; 
-}
-
-.myInnerCol {
-    border: 1px solid green;
-    height: 100%;
-} */
 
 
 
