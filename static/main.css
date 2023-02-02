@@ -63,7 +63,10 @@ body#index-page {
 
 .navbar {
     background-color: transparent;
-    margin: 20px;
+    /* background-image: url("img/indexBackground.png");
+    background-position: left; */
+    /* margin: 20px; */
+    /* padding-left: 5px; */
 }
 
 .nav-bar-web-app-name {
@@ -73,16 +76,16 @@ body#index-page {
     font-family: 'League Spartan';
 }
 
-.spotify-redirect-link {
+/* .spotify-redirect-link {
     text-decoration: none;
     padding-right: 15px;
     border-right: 2px solid red;
-}
+} */
 
 .spotify-logo {
     width: 20px;
     height: 20px;
-    margin-right: 5px;
+    margin-right: 3px;
 }
 
 .spotify-logo-text {
@@ -91,23 +94,20 @@ body#index-page {
     font-size: 14px;
 }
 
-
-
 .nav-bar-button {
     background-color: transparent;
     border: none;
     padding: 5px 10px;
-    /* padding: 0.6em 1.3em; */
     color: white;
     font-size: 10pt;
     font-weight: bold;
-
 }
 
 .nav-bar-button:hover {
-    border: 1px solid white;
+    /* border: 1px solid white; */
     /* padding: 0.6em 1.3em; */
-    border-radius: 10px;
+    /* border-radius: 10px; */
+    text-decoration: underline;
     /* color: black;
     background-color: white; */
 }
