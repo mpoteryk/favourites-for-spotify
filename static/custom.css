@@ -63,8 +63,6 @@ body#index-page {
 
 /* --- favourites page --- */
 
-/* header for profile */
-
 body#favourites {
     background-color: var(--page-color);
     background-attachment: fixed;
@@ -72,21 +70,32 @@ body#favourites {
     font-family: 'Lato';
 }
 
-.header-element {
+/* header for profile */
+
+/* .header-element {
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin: 50px 10px 30px;
-}
+} */
+
+/* .profile-header {
+    /* display: flex;
+    justify-content: flex-start; */
+    /* align-items: center; 
+    border: 1px solid green;
+} */
 
 .profile-header {
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
+    justify-content: start;
+    margin: 50px 10px 30px;
+    align-items: center; 
+    border: 1px solid green;
 }
 
 .profile-image {
     margin-right: 20px;
+    border: 1px solid blue;
 }
 
 .rounded-circle {
@@ -97,6 +106,7 @@ body#favourites {
 .user-profile-text {
     color: white;
     font-size: 25px; 
+    border: 1px solid red;
 }
 
 /* log-out button */
