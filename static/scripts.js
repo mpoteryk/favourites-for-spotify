@@ -1,16 +1,35 @@
-
 // ---------------------------------------------------------
 // colours for top genres and decades charts 
 // ---------------------------------------------------------
+
 const doughnutChartColor = ["#ffffff", "#ccccff", "#9a9aff", "#380EB9", "#1b1b82"];
 const barChartColor = "#00E0C6";
 const labelTextColor = "white";
 
 // ---------------------------------------------------------
+// default top genres and decades charts 
+// ---------------------------------------------------------
+
+// TODO: find a better solution for this because currently have only been able to do it with global vars
+// or passing chart as a parameter to many functions.
+// try making seperate .js file
+
+let barChart; // global variables (ik ik bad practice)
+let doughnutChart;
+
+if ( ((window.location.pathname).split("/").join("")) == "favourites" ) { // removes forward slashes
+    barChart = createBarChart(); 
+    loadData("genres", "short_term");
+
+    doughnutChart = createDoughnutChart();
+    loadData("decades", "short_term");
+}   
+
+// ---------------------------------------------------------
 // top genres chart
 // ---------------------------------------------------------
 
-function createBarChart(labels, values) {
+function createBarChart(labels = [], values = []) {
 
     // set-up block
     const data = {
@@ -120,19 +139,6 @@ function createDoughnutChart(labels, values) {
 
       return decadesChart;
 }
-
-// ---------------------------------------------------------
-// default top genres and decades charts 
-// ---------------------------------------------------------
-
-labels = [];
-values = [];
-
-const barChart = createBarChart(labels, values); // global variable (ik ik bad practice)
-loadData("genres", "short_term");
-
-const doughnutChart = createDoughnutChart(labels, values);
-loadData("decades", "short_term");
 
 // ---------------------------------------------------------
 // time range radio buttons
