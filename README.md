@@ -42,8 +42,8 @@ flask run
 ## Features
 * Top 5 artists
 * Top 10 tracks
-* Top 5 genres
-* Top 5 decades
+* Top 10 genres (bar chart)
+* Top 5 decades (doughnut chart)
 
 __Note__: for each of these features, one of three time ranges may be selected: short term (approximately last 4 weeks), medium term (approximately last 6 months), and long term (past several years)
 
@@ -58,7 +58,6 @@ __Note__: for each of these features, one of three time ranges may be selected: 
 
 ## Future Development
 * (Formal) Testing!
-* Add nav bar with logo + option to open Spotify
 * Add links to artists and tracks
 * Recommendations for creating playlists
 * Ensuring secure web dev practices
