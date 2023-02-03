@@ -217,10 +217,18 @@ body#favourites {
     flex: 1; */
  }
 
+#genre-card {
+    background-color: purple;
+    /* border-color: transparent;
+    align-items: center;
+    justify-content: center; */
+}
+
  #genresBarChart {
-    width: 100%;
-    height: 100%;
+    /* width: 100%;
+    height: 100%; */
     /* border: 1px solid orange; */
+    display: block;
  }
 
 
