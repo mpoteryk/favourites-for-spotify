@@ -74,14 +74,12 @@ body#favourites {
 
 .profile-header {
     justify-content: start;
-    margin: 50px 10px 30px;
+    margin: 50px 20px 30px;
     align-items: center; 
-    border: 1px solid green;
 }
 
 .profile-image {
     margin-right: 20px;
-    border: 1px solid blue;
 }
 
 .rounded-circle {
@@ -92,7 +90,6 @@ body#favourites {
 .user-profile-text {
     color: white;
     font-size: 25px; 
-    border: 1px solid red;
 }
 
 /* items title + time range buttons */ 
@@ -101,7 +98,6 @@ body#favourites {
     justify-content: space-between;
     align-items: center;
     margin-bottom: 10px;
-    border: 1px solid red;
 }
 
 .top-items-title {
@@ -147,7 +143,7 @@ body#favourites {
     background-color: var(--element-color);
     padding: 15px;
     border-radius: 25px;
-    margin-bottom: 40px;
+    margin: 20px;
 }
 
 #artist-card {
@@ -170,10 +166,9 @@ body#favourites {
 /* top tracks */
 
 .table {
-    /* margin: 0 auto; */
-    /* width: 80%;  */
     font-size: 14px;
-    /* padding-bottom: 20px; */
+    padding: 5px;
+    padding-bottom: 0;
 }
 
 .rank {
@@ -209,28 +204,27 @@ body#favourites {
 /* top genres + top decades charts */
 
  .chart {
-    /* border: 1px solid hotpink; */
-    /* margin:0 auto; */
-    padding-bottom: 0;
-    /* display: flex;
-    align-items: center;
-    flex: 1; */
+    min-height: 300px;
  }
 
 #genre-card {
-    background-color: purple;
-    /* border-color: transparent;
-    align-items: center;
-    justify-content: center; */
+    background-color: transparent;
+    border-color: transparent;
+}
+
+#decade-card {
+    background-color: transparent;
+    border-color: transparent;
 }
 
  #genresBarChart {
-    /* width: 100%;
-    height: 100%; */
-    /* border: 1px solid orange; */
     display: block;
  }
 
+ #decadesDoughnutChart {
+    display: block;
+    padding-bottom: 10px;
+ }
 
 
 
