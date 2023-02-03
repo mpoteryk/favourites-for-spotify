@@ -72,20 +72,6 @@ body#favourites {
 
 /* header for profile */
 
-/* .header-element {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin: 50px 10px 30px;
-} */
-
-/* .profile-header {
-    /* display: flex;
-    justify-content: flex-start; */
-    /* align-items: center; 
-    border: 1px solid green;
-} */
-
 .profile-header {
     justify-content: start;
     margin: 50px 10px 30px;
@@ -109,30 +95,13 @@ body#favourites {
     border: 1px solid red;
 }
 
-/* log-out button */
-
-.log-out-container {
-    align-items: center;
-}
-
-#log-out {
-    font-size: 12pt;
-}
-
-/* top artists */
-
-.content-element {
-    background-color: var(--element-color);
-    padding: 15px;
-    border-radius: 25px;
-    margin-bottom: 40px;
-}
+/* items title + time range buttons */ 
 
 .item-title-container {
-    display: flex;
     justify-content: space-between;
     align-items: center;
     margin-bottom: 10px;
+    border: 1px solid red;
 }
 
 .top-items-title {
@@ -142,25 +111,6 @@ body#favourites {
     text-align: left;
     padding: 10px;
 }
-
-.card {
-    background-color: transparent;
-    border-color: transparent;
-    align-items: center;
-    justify-content: center;
-}
-
-.card-img-top {
-    width: 150px;
-    height: 150px;
-    object-fit: cover;
-}
-
-.card-text {
-    color: white;
-}
-
-/* time range buttons */
 
 .time-range-menu input[type = "radio"] {
     opacity: 0;
@@ -180,10 +130,6 @@ body#favourites {
     margin-right: 5px;
 }
 
-.time-range-menu input[type = "radio"]:hover {
-    background-color: yellow;
-} 
-
 .time-range-menu input[type = "radio"]:checked + label {
     background-color: var(--time-range-color);
     color: white;
@@ -193,6 +139,32 @@ body#favourites {
 .time-range-menu label:hover {
     color: white;
     cursor: pointer;
+}
+
+/* top artists */
+
+.content-element {
+    background-color: var(--element-color);
+    padding: 15px;
+    border-radius: 25px;
+    margin-bottom: 40px;
+}
+
+#artist-card {
+    background-color: transparent;
+    border-color: transparent;
+    align-items: center;
+    justify-content: center;
+}
+
+.card-img-top {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+}
+
+.card-text {
+    color: white;
 }
 
 /* top tracks */
