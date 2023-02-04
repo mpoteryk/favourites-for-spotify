@@ -8,7 +8,9 @@ I started this project in October 2022 by learning about REST APIs and interacti
 
 ### Demo
 
-[![](https://markdown-videos.deta.dev/youtube/Nl20n1gqJrQ)](https://youtu.be/Nl20n1gqJrQ)
+<img src="demo/demo1.gif" width="500" height="auto"> <img src="demo/demo3.gif" width="500" height="auto">
+<!-- <img src="demo/demo2.gif" width="500" height="auto"> -->
+
 
 <!-- ### Prerequisites
 You will need to have the following installed on your machine:
@@ -43,7 +45,7 @@ flask run
 * Top 5 artists
 * Top 10 tracks
 * Top 10 genres (bar chart)
-* Top 5 decades (doughnut chart)
+* (Up to) Top 5 decades (doughnut chart)
 
 __Note__: for each of these features, one of three time ranges may be selected: short term (approximately last 4 weeks), medium term (approximately last 6 months), and long term (past several years)
 
