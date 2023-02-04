@@ -105,7 +105,7 @@ body#favourites {
     font-weight: bold;
     font-size: 25px;
     text-align: left;
-    padding: 10px;
+    padding: 5px;
 }
 
 .time-range-menu input[type = "radio"] {
@@ -167,7 +167,7 @@ body#favourites {
 
 .table {
     font-size: 14px;
-    padding: 5px;
+    padding: 10px;
     padding-bottom: 0;
 }
 

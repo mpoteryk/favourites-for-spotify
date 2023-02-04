@@ -125,7 +125,7 @@ function createDoughnutChart(labels, values) {
                             family: "Lato",
                             size: 15
                         }
-                    }
+                    },
                 }
             }
         }
@@ -238,8 +238,25 @@ function formatTopGenres(data) {
 }
 
 function formatTopDecades(data) {
-    let labels = Object.keys(data);
-    let values = Object.values(data);
+
+    let sortedArray = Object.entries(data).sort( (a, b) => {
+        if (a[1] == b[1]) {
+            return 0;
+        }
+        else {
+            return (a[1] < b[1]) ? -1 : 1;
+        }
+
+    }).reverse();
+
+    let labels = [];
+    let values = [];
+
+    for (let i = 0; i < sortedArray.length; i++) {
+        labels.push(sortedArray[i][0]);
+        values.push(sortedArray[i][1]);
+    }
+
     updateChart(doughnutChart, labels, values);
 }
 
@@ -269,6 +286,13 @@ function updateChart(chart, labels, values, noAnimation = "none") {
             dataset.data.push(value);
         });
     });
+
+    // if (chart == doughnutChart) {
+    //     // updating colours
+    //     chart.data.datasets[0].backgroundColor = ["#52489C", "#F7C59F", "#FF8CC6", "#39A0ED", "#38E4AE"];
+    //     //chart.update();
+    // }
+
 
     // note to self: uncomment if want to remove animation
     //chart.update(noAnimation);
