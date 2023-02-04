@@ -70,11 +70,55 @@ body#favourites {
     font-family: 'Lato';
 }
 
+/* nav bar */
+
+.navbar {
+    background-color: transparent;
+    /* padding-top: 15px; */
+    /* padding-left: 10px;
+    padding-right: 10px; */
+}
+
+#spotify-logo-item {
+    margin-right: 25px;
+}
+
+.nav-bar-web-app-name {
+    color: white;
+    font-weight: bold;
+    font-size: 25px;
+    font-family: 'League Spartan';
+}
+
+.spotify-logo {
+    width: 20px;
+    height: 20px;
+    margin-right: 3px;
+}
+
+.nav-bar-button {
+    background-color: transparent;
+    border: none;
+    color: white;
+    font-size: 10pt;
+    font-weight: bold;
+    padding: 5px;
+}
+
+.nav-bar-button:hover {
+    background-color: white; 
+    border-radius: 10px;
+    color: black; 
+    font-weight: bold;
+    font-size: 10pt;
+    padding: 5px;
+}
+
 /* header for profile */
 
 .profile-header {
     justify-content: start;
-    margin: 50px 20px 30px;
+    margin: 30px 20px 30px;
     align-items: center; 
 }
 

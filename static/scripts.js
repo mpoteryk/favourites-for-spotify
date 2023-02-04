@@ -1,10 +1,26 @@
 // ---------------------------------------------------------
+// open spotify button
+// ---------------------------------------------------------
+
+var openSpotifyButton = document.querySelector("#open-spotify");
+
+openSpotifyButton.addEventListener("mouseover", () => {
+    document.querySelector(".spotify-logo").src = "/static/img/Spotify_Icon_RGB_Black.png";
+});
+
+openSpotifyButton.addEventListener("mouseleave", () => {
+    document.querySelector(".spotify-logo").src = "/static/img/Spotify_Icon_RGB_White.png";
+});
+
+
+// ---------------------------------------------------------
 // colours for top genres and decades charts 
 // ---------------------------------------------------------
 
 const doughnutChartColor = ["#ffffff", "#ccccff", "#9a9aff", "#380EB9", "#1b1b82"];
 const barChartColor = "#00E0C6";
 const labelTextColor = "white";
+
 
 // ---------------------------------------------------------
 // default top genres and decades charts 

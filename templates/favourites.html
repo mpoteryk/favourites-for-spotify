@@ -13,30 +13,42 @@
   <body id = "favourites">
 
     <!-- nav bar -->
-    <nav class = "navbar navbar-expand-lg navbar-dark">
+    <nav class = "navbar navbar-expand-lg">
         <div class = "container-fluid">
             <div class = "d-flex flex-grow-1">
                 <span class = "nav-bar-web-app-name">Favourites for Spotify</span>
             </div>
-                <ul class= "navbar-nav ms-auto flex-nowrap">
-                    <li class = "nav-item">
+                <!-- <ul class = "navbar-nav ms-auto flex-nowrap"> -->
+                <ul class = "navbar-nav ms-auto">
+                    <li class = "nav-item" id = "spotify-logo-item">
                         <a href = "#">
-                            <button type = "button" class = "nav-bar-button">
-                                <img src = "/static/img/Spotify_Icon_RGB_White.png" class = "spotify-logo" alt = "Spotify logo"> 
-                                <span class = "spotify-logo-text">Open Spotify</span> 
+                            <button type = "button" class = "nav-bar-button" id = "open-spotify">
+                                <div class = "d-flex justify-content-center align-items-center">
+                                    <img src = "/static/img/Spotify_Icon_RGB_White.png" class = "spotify-logo" alt = "Spotify logo">Open Spotify 
+                                </div>
                             </button>
                         </a>
                     </li>
-                    <li class="nav-item">
+                    <li class = "nav-item">
+
+
                         <a href = "#">
+                            <button type = "button" class = "nav-bar-button" id = "log-out">Logout</button>
+                        </a>
+
+                        <!-- <a href = "#">
                             <button type = "button" class = "nav-bar-button" id = "log-out">
                                 <span class = "spotify-logo-text">Logout</span>
                             </button>
-                        </a>
+                        </a> -->
+
+
+
                     </li>
                 </ul>
         </div>
     </nav>
+
 
     <div class = "main-container container">
 
