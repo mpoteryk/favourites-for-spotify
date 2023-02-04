@@ -8,9 +8,11 @@ I started this project in October 2022 by learning about REST APIs and interacti
 
 ### Demo
 
-<img src="demo/demo1.gif" width="500" height="auto"> <img src="demo/demo3.gif" width="500" height="auto">
-<!-- <img src="demo/demo2.gif" width="500" height="auto"> -->
+<img src="demo/demo1.gif" width="500" height="auto"> 
 
+<img src="demo/demo3.gif" width="500" height="auto">
+
+<!-- <img src="demo/demo2.gif" width="500" height="auto"> -->
 
 <!-- ### Prerequisites
 You will need to have the following installed on your machine:
