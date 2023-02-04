@@ -2,7 +2,7 @@
 
 ## Getting Started
 
-Favourites for Spotify is a web application that displays a user's Spotify listening statistics in an intuitive and informative way. This is one of my first "full stack" projects.
+Favourites for Spotify is a web application that displays a user's Spotify listening statistics in an intuitive and informative way. This is one of my first almost "full stack" projects.
 
 I started this project in October 2022 by learning about REST APIs and interacting with Spotify's API. I then wrote code to connect with Spotify's API using Authorization Code Flow. During the middle of December I began designing the UI and its functionality. I then implemented this throughout the rest of December and January. Since then, I have been refactoring code and working on the features under [future development](https://github.com/mpoteryk/favourites-for-spotify#future-development).
 
