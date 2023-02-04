@@ -8,7 +8,7 @@ I started this project in October 2022 by learning about REST APIs and interacti
 
 ### Demo
 
-_GIF coming soon_
+[![](https://markdown-videos.deta.dev/youtube/Nl20n1gqJrQ)](https://youtu.be/Nl20n1gqJrQ)
 
 <!-- ### Prerequisites
 You will need to have the following installed on your machine:
