@@ -4,10 +4,17 @@
 :root {
     --primary-color: #4825d4;
     --accent-color: #0CFFE1;
-    --page-color: #131516;
-    --element-color: #1E2224;
-    --time-range-hover-color: #CCCCCC;
-    --time-range-color: #2E3438;
+    /* --page-color: #131516; */
+    --page-color: #090A0B;
+
+
+    /* --element-color: #1E2224; */
+    --element-color: #181B1D;
+
+
+    --time-range-hover-color: #C2C2C2;
+    /* --time-range-color: #2E3438; */
+    --time-range-color: #252A2D;
 }
 
 /* --- index aka home page --- */

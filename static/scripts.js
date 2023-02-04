@@ -17,7 +17,7 @@ openSpotifyButton.addEventListener("mouseleave", () => {
 // colours for top genres and decades charts 
 // ---------------------------------------------------------
 
-const doughnutChartColor = ["#ffffff", "#ccccff", "#9a9aff", "#380EB9", "#1b1b82"];
+const doughnutChartColor = ["#380EB9", "#1A0546", "#5B1DED","#1C2373","#1596C2"];
 const barChartColor = "#00E0C6";
 const labelTextColor = "white";
 
@@ -124,8 +124,9 @@ function createDoughnutChart(labels, values) {
           hoverOffset: 4
         }]
       };
+
       // config
-      const config = {
+    const config = {
         type: 'doughnut',
         data: data, 
         options: {
@@ -142,10 +143,19 @@ function createDoughnutChart(labels, values) {
                             size: 15
                         }
                     },
+                },
+                tooltip: {
+                    callbacks: {
+                        label: function(context) {
+                            let currentValue = context.raw;
+                            return ': ' + currentValue + '%';
+                        }
+                    }
                 }
             }
         }
-      };
+
+    };
 
       // render block
       const decadesChart = new Chart (
@@ -253,9 +263,29 @@ function formatTopGenres(data) {
     updateChart(barChart, labels, values);
 }
 
+// calculates the percentage of each decade
+function getPercentage(data) {
+
+    let labels = Object.keys(data);
+    let values = Object.values(data);
+    let sum = 0;
+
+    values.forEach(val => {
+        sum += val;
+    });
+
+    labels.forEach((label) => {
+        data[label] = (((data[label] / sum)) * 100);
+    });
+
+    return data;
+}
+
 function formatTopDecades(data) {
 
-    let sortedArray = Object.entries(data).sort( (a, b) => {
+    let percentData = getPercentage(data);
+
+    let sortedArray = Object.entries(percentData).sort((a, b) => {
         if (a[1] == b[1]) {
             return 0;
         }
@@ -302,13 +332,6 @@ function updateChart(chart, labels, values, noAnimation = "none") {
             dataset.data.push(value);
         });
     });
-
-    // if (chart == doughnutChart) {
-    //     // updating colours
-    //     chart.data.datasets[0].backgroundColor = ["#52489C", "#F7C59F", "#FF8CC6", "#39A0ED", "#38E4AE"];
-    //     //chart.update();
-    // }
-
 
     // note to self: uncomment if want to remove animation
     //chart.update(noAnimation);
