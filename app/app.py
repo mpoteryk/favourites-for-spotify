@@ -81,20 +81,15 @@ def favouritesUserData(itemType, timeRange):
     #TODO: validate! / error checking
     accessToken = session["authHeader"]["access_token"]
 
-    #TODO: get rid of this sectioj?
-    if request.method == "POST": # post request   
-        print(request.get_text())
-        return "OK", 200
-    else: # get request (get the thing from the URL)
-        if itemType == "artists": 
-            return json.dumps(getUserTopArtists(accessToken, NUMBER_OF_ARTISTS, timeRange)) 
-        elif itemType == "tracks":
-            return json.dumps(getUserTopTracks(accessToken, NUMBER_OF_TRACKS, timeRange))
-        elif itemType == "genres":
-            return json.dumps(getUserTopGenres(accessToken, NUMBER_OF_GENRES, timeRange))
-        elif itemType == "decades":
-            return json.dumps(getUserTopDecades(accessToken, NUMBER_OF_DECADES, timeRange))
-        # elif tracks, else error TODO: add error for else
+    if itemType == "artists": 
+        return json.dumps(getUserTopArtists(accessToken, NUMBER_OF_ARTISTS, timeRange)) 
+    elif itemType == "tracks":
+        return json.dumps(getUserTopTracks(accessToken, NUMBER_OF_TRACKS, timeRange))
+    elif itemType == "genres":
+        return json.dumps(getUserTopGenres(accessToken, NUMBER_OF_GENRES, timeRange))
+    elif itemType == "decades":
+        return json.dumps(getUserTopDecades(accessToken, NUMBER_OF_DECADES, timeRange))
+    # elif tracks, else error TODO: add error for else
 
 @app.route("/logout")
 def logout():
