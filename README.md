@@ -16,17 +16,21 @@ I started this project in late October 2022 by learning about REST APIs and inte
 
 <!-- ### Prerequisites
 You will need to have the following installed on your machine:
-* Python
 -->
 
 ### Installation (_in progress_)
 
-1. Clone this repository to your local machine 
+1. Create a [Spotify for Developers](https://developer.spotify.com/dashboard/login) account and set up a new app. Under Redirect URI, add your localhost port. For example, http://localhost:5000/callback.
+    * If you've added a different one, in ```auth.py``` change ```CLIENT_URL```.
+   
+2. In an ```.env``` file, add the Client ID and Client Secret from your Spotify for Developers account
+
+3. Clone this repository to your local machine 
 ```
 git clone https://github.com/YOUR-USERNAME/favourites-for-spotify.git
 ```
 
-2. Create a virtual environment within the project directory and activate it
+4. Create a virtual environment within the project directory and activate it
 ```
 python3 -m venv venv
 ```
@@ -34,11 +38,11 @@ python3 -m venv venv
 source venv/bin/activate
 ```
 
-3. Install the required packages 
+5. Install the required packages 
 ```
 pip install -r requirements.txt
 ```
-4. Start the web application
+6. Start the web application
 ```
 flask run
 ```
