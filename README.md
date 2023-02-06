@@ -62,6 +62,7 @@ __Note__: for each of these features, one of three time ranges may be selected: 
 
 ## Future Development
 * (Formal) Testing!
+* Implement logout
 * (_Currently_) manage refreshing access tokens
 * Add links to artists and tracks
 * Recommendations for creating playlists
