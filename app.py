@@ -5,7 +5,7 @@ from dotenv import load_dotenv
 import json
 import os
 
-from api import getAuthURL, getAuthData, getCurrentUserProfile, getUserTopArtists, getUserTopTracks, getUserTopGenres, getUserTopDecades
+from auth import getAuthURL, getAuthData, getCurrentUserProfile, getUserTopArtists, getUserTopTracks, getUserTopGenres, getUserTopDecades
 
 load_dotenv()
 
@@ -14,14 +14,8 @@ NUMBER_OF_TRACKS = 10
 NUMBER_OF_GENRES = 50
 NUMBER_OF_DECADES = 50
 
-#TODO: change these to capitals?
 clientID = os.getenv("CLIENT_ID")
 clientSecret = os.getenv("CLIENT_SECRET")
-
-# TO DO LIST:
-# TODO: deal with the refesh token, add logic for it
-# TODO: look into flask decorators to verify user is logged in before performing function
-# TODO: on html page, simplify code and make more efficient
 
 app = Flask(__name__)
 app.config["SESSION_PERMANENT"] = False

@@ -1,4 +1,3 @@
-
 from urllib.parse import urlencode, quote_plus
 import requests 
 import base64
@@ -7,9 +6,6 @@ from collections import Counter
 from datetime import datetime
 from math import floor
 
-# TODO: rename to auth or spotifyapi?? then put this + helpers.py in a folder just called SpotifyAPI (find folder naming conv)
-# (call these auth)
-
 SPOTIFY_AUTH_URL = "https://accounts.spotify.com/authorize"
 SPOTIFY_TOKEN_URL = "https://accounts.spotify.com/api/token"
 CLIENT_URL = "http://127.0.0.1:5000"
@@ -17,7 +13,6 @@ REDIRECT_URI = f"{CLIENT_URL}/callback"
 API_VERSION = "v1"
 SPOTIFY_BASE_URL = f"https://api.spotify.com/{API_VERSION}"
 SCOPE = "user-top-read"
-
 
 # returns the url to redirect the user to spotify's authorization endpoint
 def getAuthURL(clientID):
@@ -73,13 +68,8 @@ def getHeader(accessToken):
     }
     return header
 
-# -----------------------------------------------
-# functions that use spotify api (helpers)
-
-def getCurrentUserProfile(accessToken):
-
+def getCurrentUserProfile(accessToken):    
     # TODO: add check for refresh token
-
     userProfileEndPoint = f"{SPOTIFY_BASE_URL}/me"
     response = requests.get(userProfileEndPoint, headers = getHeader(accessToken)) # TODO: add error checking
     userProfileObject = response.json()
@@ -107,11 +97,8 @@ def getUserTopItems(accessToken, itemType, limit, timeRange):
 def getUserTopArtists(accessToken, limit, timeRange):
     itemType = "artists"
     itemsJSON = getUserTopItems(accessToken, itemType, limit, timeRange)
-    # create a list where each element is a dictionary of two keys of the artist name and artist images
-    
-    # if len(itemsJSON) < limit:
-    #     return "the full number of artists could not be displayed at this time"
 
+    # create a list where each element is a dictionary of two keys of the artist name and artist images
     artistList = []
     for artist in itemsJSON:
         artistImages = artist["images"]
@@ -184,6 +171,4 @@ def getUserTopDecades(accessToken, limit, timeRange):
     # gets the unique decades (use as the labels)
     decadeFreq = dict(Counter(decades).most_common(5))
     return decadeFreq
-
-
 
