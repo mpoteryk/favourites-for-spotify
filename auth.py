@@ -43,9 +43,6 @@ def getAuthData(authCode, clientID, clientSecret):
 
     response = requests.post(SPOTIFY_TOKEN_URL, data = params, headers = headers)
 
-   # if response.status_code != 200:
-        #return error with return the response status code
-
     responseJSON = json.loads(response.text)
 
     authData = {
