@@ -83,9 +83,8 @@ def favouritesUserData(itemType, timeRange):
         return json.dumps(getUserTopGenres(accessToken, NUMBER_OF_GENRES, timeRange))
     elif itemType == "decades":
         return json.dumps(getUserTopDecades(accessToken, NUMBER_OF_DECADES, timeRange))
-    # elif tracks, else error TODO: add error for else
+
 
 @app.route("/logout")
 def logout():
     return "logging out"
-

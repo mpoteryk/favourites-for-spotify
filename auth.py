@@ -42,6 +42,10 @@ def getAuthData(authCode, clientID, clientSecret):
     }
 
     response = requests.post(SPOTIFY_TOKEN_URL, data = params, headers = headers)
+
+   # if response.status_code != 200:
+        #return error with return the response status code
+
     responseJSON = json.loads(response.text)
 
     authData = {
@@ -69,7 +73,6 @@ def getHeader(accessToken):
     return header
 
 def getCurrentUserProfile(accessToken):    
-    # TODO: add check for refresh token
     userProfileEndPoint = f"{SPOTIFY_BASE_URL}/me"
     response = requests.get(userProfileEndPoint, headers = getHeader(accessToken)) # TODO: add error checking
     userProfileObject = response.json()
@@ -92,8 +95,7 @@ def getUserTopItems(accessToken, itemType, limit, timeRange):
     itemsJSON = userTopItemsObject["items"]
     return itemsJSON
 
-# given the itemsJSON for type = "artists", format it 
-# returns ....
+# returns a formatted version of top artists
 def getUserTopArtists(accessToken, limit, timeRange):
     itemType = "artists"
     itemsJSON = getUserTopItems(accessToken, itemType, limit, timeRange)
@@ -107,7 +109,7 @@ def getUserTopArtists(accessToken, limit, timeRange):
         artistList.append(artistDict)
     return artistList
 
-# returns...
+# returns a formatted version of top tracks
 def getUserTopTracks(accessToken, limit, timeRange):
     itemType = "tracks"
     itemsJSON = getUserTopItems(accessToken, itemType, limit, timeRange)
@@ -120,10 +122,8 @@ def getUserTopTracks(accessToken, limit, timeRange):
         trackList.append(trackDict)
     return trackList 
 
-# returns ... 
-# get user top tracks
-# get user genres from their top artists
-# return a list of the top 10 user genres
+
+# returns a list of the top 10 user genres
 def getUserTopGenres(accessToken, limit, timeRange):
 
     artistList = getUserTopItems(accessToken, "artists", limit, timeRange)
