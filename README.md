@@ -74,5 +74,6 @@ __Note__: for each of these features, one of three time ranges may be selected: 
 * (Eventual) deployment
 
 ## Acknowledgements 
+* [Spotify Development Guide - Authorization Code Flow](https://developer.spotify.com/documentation/general/guides/authorization/code-flow/)
 * [Spotify Web API Reference](https://developer.spotify.com/documentation/web-api/reference/#/)
 
